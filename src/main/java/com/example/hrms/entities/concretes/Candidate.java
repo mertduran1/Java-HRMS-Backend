@@ -1,15 +1,19 @@
 package com.example.hrms.entities.concretes;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Table(name = "candidates")
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Candidate {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
     @Column(name = "first_name")
@@ -21,13 +25,4 @@ public class Candidate {
     @Column(name = "birth_year")
     private int birthYear;
 
-    public Candidate(int id, String firstName, String lastName, String identityNumber, int birthYear) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.identityNumber = identityNumber;
-        this.birthYear = birthYear;
-    }
-
-    public Candidate() {}
 }

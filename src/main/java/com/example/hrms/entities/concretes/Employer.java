@@ -2,15 +2,19 @@ package com.example.hrms.entities.concretes;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Table(name = "employers")
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employer {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
     @Column(name = "company_name")
@@ -19,14 +23,5 @@ public class Employer {
     private String webAddress;
     @Column(name = "phone_number")
     private String phoneNumber;
-
-    public Employer(int id, String companyName, String webAddress, String phoneNumber) {
-        this.id = id;
-        this.companyName = companyName;
-        this.webAddress = webAddress;
-        this.phoneNumber = phoneNumber;
-    }
-
-    public Employer() {}
 
 }
