@@ -1,4 +1,4 @@
-package com.example.hrms.api;
+package com.example.hrms.api.base;
 
 import com.example.hrms.business.abstracts.JobService;
 import com.example.hrms.core.utilities.results.DataResult;

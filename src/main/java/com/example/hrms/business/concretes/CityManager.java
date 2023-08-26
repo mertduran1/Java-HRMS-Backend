@@ -15,12 +15,10 @@ import java.util.List;
 public class CityManager implements CityService {
 
     private CityDao cityDao;
-
     @Autowired
     public CityManager(CityDao cityDao) {
         this.cityDao = cityDao;
     }
-
 
     @Override
     public DataResult<List<GetAllCitiesresponse>> getAll() {

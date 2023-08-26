@@ -19,7 +19,6 @@ public class CreateJobAdvertisementRequest {
     //private int jobPositionId;
     @Size(min = 2)
     private String description;
-
     private Integer minSalary;
     private Integer maxSalary;
     private int numberOfJobOpenings;

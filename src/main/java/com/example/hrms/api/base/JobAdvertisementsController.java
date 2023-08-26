@@ -1,4 +1,4 @@
-package com.example.hrms.api;
+package com.example.hrms.api.base;
 
 import com.example.hrms.business.abstracts.JobAdvertisementService;
 import com.example.hrms.business.abstracts.requests.CreateJobAdvertisementRequest;
@@ -8,6 +8,7 @@ import com.example.hrms.core.utilities.results.Result;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @CrossOrigin
 public class JobAdvertisementsController {
+
     private JobAdvertisementService jobAdvertisementService;
 
     @GetMapping("/getAll")
