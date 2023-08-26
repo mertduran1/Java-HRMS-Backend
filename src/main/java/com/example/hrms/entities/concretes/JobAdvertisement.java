@@ -33,9 +33,6 @@ public class JobAdvertisement {
     @Column(name = "application_deadline")
     private int applicationDeadline;
 
-    @Column(name = "job_post_date")
-    private Date jobPostDate;
-
     @Column(name = "status")
     private boolean status;
 
@@ -44,12 +41,15 @@ public class JobAdvertisement {
     private City city;
 
     @ManyToOne()
+    @JoinColumn(name = "job_position_id")
+    private JobPosition jobPosition;
+
+    @ManyToOne()
     @JoinColumn(name = "employer_id", referencedColumnName = "id")
     private Employer employer;
 
     @ManyToOne()
-    @JoinColumn(name = "employement_type_id")
-    private EmploymentType employementType;
+    private EmploymentType employmentType;
 
     @ManyToOne()
     @JoinColumn(name = "location_type_id")

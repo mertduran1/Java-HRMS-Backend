@@ -23,7 +23,7 @@ public class School {
     private int startYear;
 
     @Column(name = "end_year")
-    private int endYear;
+    private Integer endYear;
 
     @ManyToOne
     @JoinColumn(name = "candidate_id")
