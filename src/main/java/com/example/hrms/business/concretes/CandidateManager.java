@@ -6,7 +6,7 @@ import com.example.hrms.core.utilities.results.Result;
 import com.example.hrms.core.utilities.results.SuccessDataResult;
 import com.example.hrms.core.utilities.results.SuccessResult;
 import com.example.hrms.dataAccess.abstracts.CandidateDao;
-import com.example.hrms.entities.concretes.Candidate;
+import com.example.hrms.entities.concretes.ApplicationUsers.Candidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

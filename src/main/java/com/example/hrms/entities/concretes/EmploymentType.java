@@ -1,23 +1,26 @@
 package com.example.hrms.entities.concretes;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
-@Table(name = "employees")
 @Entity
+@Table(name = "employment_types")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee {
-
+public class EmploymentType {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column(name = "first_name")
-    private String firstName;
-    @Column(name = "last_name")
-    private String lastName;
+
+    @Column(name = "employment_type_name")
+    private String employmentTypeName;
+
+    @OneToMany(mappedBy = "employmentType")
+    private List<JobAdvertisement> jobAdvertisements;
 }

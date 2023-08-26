@@ -1,7 +1,5 @@
 package com.example.hrms.core.utilities.results;
 
-import com.example.hrms.entities.concretes.Candidate;
-
 public class Result {
     private boolean success;
     private String message;

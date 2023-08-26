@@ -1,9 +1,9 @@
 package com.example.hrms.entities.concretes;
 
+import com.example.hrms.entities.concretes.ApplicationUsers.Employer;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Generated;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -19,5 +19,9 @@ public class JobTitle {
     private int id;
     @Column(name = "title")
     private String title;
+
+    @ManyToOne()
+    @JoinColumn(name = "employers")
+    private Employer employer;
 
 }

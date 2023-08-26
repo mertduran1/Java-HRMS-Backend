@@ -1,17 +1,20 @@
-package com.example.hrms.entities.concretes;
+package com.example.hrms.entities.concretes.ApplicationUsers;
 
 
+import com.example.hrms.entities.concretes.JobTitle;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @Table(name = "employers")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employer {
+public class Employer extends User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,5 +26,9 @@ public class Employer {
     private String webAddress;
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    //Employer a iş ilanlarını kaydediyoruz
+    @OneToMany(mappedBy = "employer")
+    private List<JobTitle> jobTitles;
 
 }
