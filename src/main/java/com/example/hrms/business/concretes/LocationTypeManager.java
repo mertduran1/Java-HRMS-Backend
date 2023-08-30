@@ -4,12 +4,15 @@ import com.example.hrms.business.abstracts.LocationTypeService;
 import com.example.hrms.business.abstracts.responses.GetAllLocationTypes;
 import com.example.hrms.core.utilities.mappers.ModelMapperService;
 import com.example.hrms.core.utilities.results.DataResult;
+import com.example.hrms.core.utilities.results.Result;
 import com.example.hrms.core.utilities.results.SuccessDataResult;
+import com.example.hrms.core.utilities.results.SuccessResult;
 import com.example.hrms.dataAccess.abstracts.LocationTypeDao;
 import com.example.hrms.entities.concretes.LocationType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.stream.Location;
 import java.util.List;
 
 @Service

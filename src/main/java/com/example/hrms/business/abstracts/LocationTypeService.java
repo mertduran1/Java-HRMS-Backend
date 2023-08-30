@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface LocationTypeService {
     DataResult<List<GetAllLocationTypes>> getAll();
+
 }

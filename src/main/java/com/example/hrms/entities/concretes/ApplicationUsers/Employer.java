@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employer extends User {
+public class Employer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,5 +30,6 @@ public class Employer extends User {
     //Employer a iş ilanlarını kaydediyoruz
     @OneToMany(mappedBy = "employer")
     private List<JobTitle> jobTitles;
+
 
 }

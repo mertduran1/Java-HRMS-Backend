@@ -1,10 +1,13 @@
 package com.example.hrms.business.concretes.cvmanager;
 
 import com.example.hrms.business.abstracts.candidatecv.SchoolService;
+import com.example.hrms.business.abstracts.requests.CreateSchoolRequest;
 import com.example.hrms.business.abstracts.responses.candidatecv.GetAllSchoolsResponse;
 import com.example.hrms.core.utilities.mappers.ModelMapperService;
 import com.example.hrms.core.utilities.results.DataResult;
+import com.example.hrms.core.utilities.results.Result;
 import com.example.hrms.core.utilities.results.SuccessDataResult;
+import com.example.hrms.core.utilities.results.SuccessResult;
 import com.example.hrms.dataAccess.abstracts.candidatecv.SchoolDao;
 import com.example.hrms.entities.concretes.CandidateCV.School;
 import lombok.AllArgsConstructor;
@@ -17,6 +20,13 @@ import java.util.List;
 public class SchoolManager implements SchoolService {
     private SchoolDao schoolDao;
     private ModelMapperService modelMapperService;
+
+    @Override
+    public Result add(List<CreateSchoolRequest> createSchoolRequests) {
+        School school = modelMapperService.forRequest().map(createSchoolRequests, School.class);
+        schoolDao.save(school);
+        return new SuccessResult("School added");
+    }
 
     @Override
     public DataResult<List<GetAllSchoolsResponse>> getAllByCandidateIdOrderByEndYearDesc(int candidateId) {

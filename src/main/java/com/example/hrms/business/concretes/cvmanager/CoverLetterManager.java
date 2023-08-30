@@ -1,10 +1,13 @@
 package com.example.hrms.business.concretes.cvmanager;
 
 import com.example.hrms.business.abstracts.candidatecv.CoverLetterService;
+import com.example.hrms.business.abstracts.requests.CreateCoverLetterRequest;
 import com.example.hrms.business.abstracts.responses.candidatecv.GetCoverLetterResponse;
 import com.example.hrms.core.utilities.mappers.ModelMapperService;
 import com.example.hrms.core.utilities.results.DataResult;
+import com.example.hrms.core.utilities.results.Result;
 import com.example.hrms.core.utilities.results.SuccessDataResult;
+import com.example.hrms.core.utilities.results.SuccessResult;
 import com.example.hrms.dataAccess.abstracts.candidatecv.CoverLetterDao;
 import com.example.hrms.entities.concretes.CandidateCV.CoverLetter;
 import lombok.AllArgsConstructor;
@@ -27,4 +30,12 @@ public class CoverLetterManager implements CoverLetterService {
 
         return new SuccessDataResult<>(getCoverLetterResponse);
     }
+
+    @Override
+    public Result add(CreateCoverLetterRequest createCoverLetterRequest) {
+        CoverLetter coverLetter = modelMapperService.forRequest().map(createCoverLetterRequest, CoverLetter.class);
+        coverLetterDao.save(coverLetter);
+        return new SuccessResult(("Cover Letter succes"));
+    }
+
 }

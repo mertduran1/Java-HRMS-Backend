@@ -1,10 +1,13 @@
 package com.example.hrms.business.concretes.cvmanager;
 
 import com.example.hrms.business.abstracts.candidatecv.JobExperienceService;
+import com.example.hrms.business.abstracts.requests.CreateJobExperienceRequest;
 import com.example.hrms.business.abstracts.responses.candidatecv.GetAllJobExperiencesResponse;
 import com.example.hrms.core.utilities.mappers.ModelMapperService;
 import com.example.hrms.core.utilities.results.DataResult;
+import com.example.hrms.core.utilities.results.Result;
 import com.example.hrms.core.utilities.results.SuccessDataResult;
+import com.example.hrms.core.utilities.results.SuccessResult;
 import com.example.hrms.dataAccess.abstracts.candidatecv.JobExperienceDao;
 import com.example.hrms.entities.concretes.CandidateCV.JobExperience;
 import lombok.AllArgsConstructor;
@@ -17,6 +20,15 @@ import java.util.List;
 public class JobExperienceManager implements JobExperienceService {
     private JobExperienceDao jobExperienceDao;
     private ModelMapperService modelMapperService;
+
+    @Override
+    public Result add(List<CreateJobExperienceRequest> createJobExperienceRequests) {
+        List<JobExperience> jobExperiences = createJobExperienceRequests.stream().map(createJobExperienceRequest -> modelMapperService.forRequest().map(createJobExperienceRequest, JobExperience.class)).toList();
+        jobExperienceDao.saveAll(jobExperiences);
+        return new SuccessResult("Job experiences added");
+
+
+    }
 
     @Override
     public DataResult<List<GetAllJobExperiencesResponse>> getAllByCandidateIdOrderByEndedYearDesc(int candidateId) {
